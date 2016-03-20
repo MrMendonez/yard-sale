@@ -71,4 +71,48 @@ user1.function(err) {
     })
   };
 
+
 };
+
+
+
+
+
+//  test data seed 2
+
+// create a user
+var user2 = new User({
+  name: 'Bobby',
+  money: 4000,
+  password: 1234
+  collectedItems: ['WindForce', 'Book of Eli', 'Mad Maxs Hat']
+});
+// within saving the user
+user2.save(function(err) {
+  if(err) return err;
+
+  // create comments within the user save
+  var comment3 = new Comment({
+    commentMsg: "Do you have the boots too?",
+    owner: user2.id,
+    itemLink: "Portal Gun"
+  });
+  comment3.save(function(err) {
+    if(err) return err;
+    console.log('Done');
+  });
+});
+
+
+// test data seed 3
+// create a user
+var user3 = new User({
+  name: 'Jackie',
+  money: 8000,
+  password: '1234'
+});
+// within saving the user
+user3.save(function(err) {
+  if(err) return err;
+  console.log("Done");
+});
