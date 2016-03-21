@@ -37,7 +37,7 @@
           <input id="password" type="password" class="validate" ng-model="forms.password">
           <label for="password">Password</label>
         </div>
-        <button ng-click="getLogin()" class="waves-effect waves-light btn">Submit</button>
+        <button ng-click="login()" class="waves-effect waves-light btn">Submit</button>
       </div>
     </form>
   </div> <!-- login-form -->
@@ -89,12 +89,13 @@
   </div> <!-- modal2 -->
 
   <div class="container">
+    <h3 class="center">Listed Items</h3>
     <div ng-init="getItems()">
       <section ng-repeat="item in items">
         <div ng-if="!item.itemSold">
           <div class="row">
             <div class="col m6 offset-m3 center">
-              <h3>{{ item.itemName }}</h3>
+              <h4>{{ item.itemName }}</h4>
               <h5>Description: {{ item.itemDescription }}</h5>
               <p>Owner: {{item._owner.username}}</p>
               <small>Price: {{ item.itemPrice | currency }}</small>

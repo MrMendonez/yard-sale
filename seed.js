@@ -141,7 +141,7 @@ user1.save(function(err) {
 
 var user2 = new User({
   username: 'reginageorge',
-  password: 'password',
+  password: 'meangirls',
   money: 8000,
   collectedItems: []
 });
