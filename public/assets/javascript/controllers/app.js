@@ -10,7 +10,7 @@ angular.module('yardsaleApp', [])
 
       $http({
         method: 'POST',
-        url: '/user'
+        url: '/user',
         data: {username:budgetTracker.username}
       }).then(function(result) {
         console.log(result.data);
