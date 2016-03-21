@@ -113,6 +113,27 @@ app.get('/deleteexpense/:id', function(req, res) {
   });
 });
 
+app.get('/buyItem/:id', function(req, res) {
+  Expense.findByIdAndRemove(req.params.id, function(err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      User.findOneAndUpdate(doc._user, {
+        $pull: {
+          expenses: doc._id
+        }
+      }, function(err, doc2) {
+        if (err) {
+          console.log(err);
+          res.send(doc2);
+        } else {
+          res.send(doc2);
+        }
+      });
+    }
+  });
+});
+
 app.listen(PORT, function() {
   console.log("listening on port: " + PORT);
 });

@@ -52,15 +52,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="expense in budgetTracker.expenses">
-                <td>{{ expense.name }}</td>
-                <td>{{ expense.description }}</td>
-                <td>{{ expense.amount | currency }}</td>
-                <form ng-submit="budgetTracker.buyItem()">
-                  <td type="submit"><button>$</button></td>
-                </form>
-                <td ng-click="budgetTracker.deleteExpense(expense._id)"><button>X</button></td>
-              </tr>
+              <form ng-submit="budgetTracker.addExpense()">
+                <tr ng-repeat="expense in budgetTracker.expenses">
+                  <td ng-model="budgetTracker.expense.name">{{ expense.name }}</td>
+                  <td ng-model="budgetTracker.expense.description">{{ expense.description }}</td>
+                  <td ng-model="budgetTracker.expense.amount">{{ expense.amount | currency }}</td>
+                  <td ng-click="budgetTracker.buyItem(expense._id)" type="submit"><button>$</button></td>
+                  <td ng-click="budgetTracker.deleteExpense(expense._id)"><button>X</button></td>
+                </tr>
+              </form>
             </tbody>
           </table>
         </div>

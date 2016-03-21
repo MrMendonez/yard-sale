@@ -67,4 +67,14 @@ angular.module('yardsaleApp', [])
       });
     };
 
+    budgetTracker.buyItem = function(expenseId) {
+      $http({
+        method: 'GET',
+        url: '/deleteexpense/' + expenseId
+      }).then(function(result) {
+        budgetTracker.calculate();
+        budgetTracker.login();
+      });
+    };
+
   });
