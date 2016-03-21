@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var logger = require('morgan');
-var PORT = 4000;
+var PORT = process.env.PORT || 4000;
 
 /*Mongoose Connect*/
 var db = 'mongodb://localhost/yardsale';
@@ -80,7 +80,6 @@ app.post('/newexpense/:id', function(req, res) {
 });
 
 app.post('/updatebudget/:id', function(req, res) {
-  console.log('app.post(/updatebudget/:id, function...) fired')
   console.log(req.params.id);
   User.findOneAndUpdate({ _id:req.params.id }, { budget: req.body.budget }, { new:true }, function (err, doc){
     if (err){

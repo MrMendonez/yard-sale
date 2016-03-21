@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcryptjs');
+var Schema = mongoose.Schema;
 
 /* Mongoose Connect */
 var db = 'mongodb://localhost/yardsale';

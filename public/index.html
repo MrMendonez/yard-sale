@@ -47,6 +47,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Amount</th>
+                <th>Purchase</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -55,6 +56,9 @@
                 <td>{{ expense.name }}</td>
                 <td>{{ expense.description }}</td>
                 <td>{{ expense.amount | currency }}</td>
+                <form ng-submit="budgetTracker.buyItem()">
+                  <td type="submit"><button>$</button></td>
+                </form>
                 <td ng-click="budgetTracker.deleteExpense(expense._id)"><button>X</button></td>
               </tr>
             </tbody>
@@ -65,6 +69,7 @@
           <input id="expensetitle" type="text" ng-model="budgetTracker.expense.name" placeholder="Item"><br />
           <input id="expensedescription" type="text" ng-model="budgetTracker.expense.description" placeholder="Description"><br />
           <input id="expenseamount" type="number" ng-model="budgetTracker.expense.amount" placeholder="Sell Price"><br />
+          <br />
           <button id="submitbutton" type="submit">Add Item</button>
         </form>
 

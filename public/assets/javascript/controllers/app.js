@@ -21,7 +21,6 @@ angular.module('yardsaleApp', [])
         budgetTracker.password = result.data.password;
         budgetTracker.budget = result.data.budget;
         budgetTracker.expenses = result.data.expenses;
-        budgetTracker.calculate();
       });
     };
 
