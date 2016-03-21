@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="yardsaleApp">
 <head>
-  <title>Buy Or Sell</title>
-  <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+  <title>Yard Sale!</title>
+  <script   src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="/assets/js/yardsale.js"></script>
   <script src="/assets/js/yardsaleController.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
 </head>
 <body ng-controller="yardsaleController as yardsale">
 
-  <nav class="ruNav">
+  <nav class="green">
     <div class="container">
       <div class="nav-wrapper row">
-        <a href="/" class="brand-logo">Buy OR Sell</a>
+        <a href="/" class="brand-logo">Yard Sale!</a>
         <ul class="right hide-on-med-and-down">
           <li ng-show="!user"><a id="login" href="#">Login</a></li>
           <li ng-show="user"><a id="login" href="#" ng-click="logout()">Logout</a></li>
@@ -43,18 +42,17 @@
     </form>
   </div> <!-- login-form -->
 
-
   <div class="slider">
     <ul class="slides">
       <li>
-        <img src="http://lorempixel.com/580/250/cats/1"> <!-- random image -->
+        <img src="https://images.unsplash.com/photo-1452886692067-11c699fb38e6?crop=entropy&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450"> <!-- random image -->
         <div class="caption center-align">
           <h3 ng-if="user">Hello {{user.username}}</h3>
           <h5 class="light grey-text text-lighten-3">This is your current balance: {{user.money | currency}}</h5>
         </div>
       </li>
       <li>
-        <img src="http://lorempixel.com/580/250/cats/2"> <!-- random image -->
+        <img src="https://images.unsplash.com/37/7ERQBFNpSpSa7opZjjWE_camaras.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=22f4df31169c172b2395f903555147fa"> <!-- random image -->
         <div class="caption left-align">
           <h3>These are your collected items</h3>
           <h5 class="light grey-text text-lighten-3" ng-repeat="item in user.collectedItems">{{item}}</h5>
@@ -118,6 +116,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
   <script src="/assets/js/scripts.js"></script>
-
 </body>
 </html>
