@@ -16,13 +16,9 @@ app.use(logger('dev'));
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
-
 app.get('/', function(req, res) {
   res.send(index.html);
 });
-
-
-
 
 //Get New User With Populated Expenses
 app.post('/user', function(req, res) {
@@ -56,7 +52,6 @@ app.post('/user', function(req, res) {
     });
 });
 
-
 app.post('/newexpense/:id', function(req, res) {
   var expenseWithUserId = req.body;
   expenseWithUserId._user = req.params.id;
@@ -84,10 +79,10 @@ app.post('/newexpense/:id', function(req, res) {
   });
 });
 
-
-app.post('/updatesalary/:id', function(req, res) {
+app.post('/updatebudget/:id', function(req, res) {
+  console.log('app.post(/updatebudget/:id, function...) fired')
   console.log(req.params.id);
-  User.findOneAndUpdate({_id:req.params.id}, {salary: req.body.salary}, {new:true}, function (err, doc){
+  User.findOneAndUpdate({ _id:req.params.id }, { budget: req.body.budget }, { new:true }, function (err, doc){
     if (err){
       console.log(err);
       res.send(err);
@@ -120,5 +115,5 @@ app.get('/deleteexpense/:id', function(req, res) {
 });
 
 app.listen(PORT, function() {
-  console.log("listening on port:" + PORT);
+  console.log("listening on port: " + PORT);
 });

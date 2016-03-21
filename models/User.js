@@ -11,7 +11,7 @@ var userSchema = new Schema({
       type: String,
       required: true
     },
-    salary : {
+    budget : {
       type : Number,
     },
     createdDate : {

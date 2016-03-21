@@ -28,11 +28,14 @@ angular.module('yardsaleApp', [])
     };
 
     budgetTracker.updateBudget = function() {
+      console.log('updateBudget function fired');
+      console.log('budgetTracker.budget = ' + budgetTracker.budget);
       $http({
         method: 'POST',
-        url: '/updatebudget' + budgetTracker.userId,
+        url: '/updatebudget/' + budgetTracker.userId,
         data: { budget: budgetTracker.budget }
       }).then(function(result) {
+        console.log('then(function(result) fired')
         budgetTracker.budget = result.data.budget;
         console.log('Caluclating...')
         budgetTracker.calculate();
