@@ -70,7 +70,7 @@ User = mongoose.model('User', userSchema);
 
 var user1 = new User({
   username: 'bricktamland',
-  password: '11111',
+  password: 'lamp',
   money: 9000,
   collectedItems: []
 });
@@ -113,7 +113,7 @@ user1.save(function(err) {
       }
     }).exec(function(err) {
       if(err) throw err;
-      console.log('done');
+      console.log('Item 1 loaded');
     });
   });
   var item2 = new Item({
@@ -133,11 +133,10 @@ user1.save(function(err) {
       }
     }).exec(function(err) {
       if(err) throw err;
-      console.log('done');
+      console.log('Item 2 loaded');
     });
   });
 });
-
 
 var user2 = new User({
   username: 'reginageorge',
@@ -168,14 +167,14 @@ user2.save(function(err) {
   });
 
   Item.update({
-    itemName: 'Nikon FM10 35mm'
+    itemName: 'Nikon FM10 35mm Camera'
   }, {
     $push: {
       comments: comment1._id
     }
   }).exec(function(err) {
     if(err) throw err;
-    console.log('done');
+    console.log('Item 1 comments loaded');
   });
 
   Item.update({
@@ -186,6 +185,6 @@ user2.save(function(err) {
     }
   }).exec(function(err) {
     if(err) throw err;
-    console.log('done');
+    console.log('Item 2 comments loaded');
   });
 });
