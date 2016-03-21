@@ -11,7 +11,10 @@ var userSchema = new Schema({
       type: String,
       required: true
     },
-    money: Number,
+    money: {
+      type: Number,
+      required: true
+    },
     collectedItems: [{
       type: String
     }],

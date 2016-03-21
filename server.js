@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 
 var app = express();
-var db = 'mongodb://localhost/buyandsell';
+var db = 'mongodb://localhost/yardsale';
 
 var PORT = process.env.PORT || 8080;
 

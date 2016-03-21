@@ -18,7 +18,7 @@
         <a href="/" class="brand-logo">Yard Sale!</a>
         <ul class="right hide-on-med-and-down">
           <li ng-show="!user"><a id="login" href="#">Login</a></li>
-          <li ng-show="user"><a id="login" href="#" ng-click="logout()">Logout</a></li>
+          <li ng-show="user"><a id="logout" href="#" ng-click="logout()">Logout</a></li>
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
           <input id="password" type="password" class="validate" ng-model="forms.password">
           <label for="password">Password</label>
         </div>
-        <button ng-click="login()" class="waves-effect waves-light btn" type="submit">Submit</button>
+        <button ng-click="getLogin()" class="waves-effect waves-light btn">Submit</button>
       </div>
     </form>
   </div> <!-- login-form -->
@@ -48,7 +48,7 @@
         <img src="https://images.unsplash.com/photo-1452886692067-11c699fb38e6?crop=entropy&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450"> <!-- random image -->
         <div class="caption center-align">
           <h3 ng-if="!user">Welcome to Yard Sale!</h3>
-          <h3 ng-if="user">Hello {{user.username}}</h3>
+          <h3 ng-if="user">Hello {{ user.username }}</h3>
           <h5 ng-if="user" class="light grey-text text-lighten-3">This is your current balance: {{ user.money | currency }}</h5>
         </div>
       </li>
@@ -105,7 +105,12 @@
                 <a class="waves-effect waves-light btn" ng-click="addComment(item.itemName)">Add Comment</a>
               </div>
               <ul ng-repeat="comment in item.comments">
-                <li>{{ comment._owner.username }} says: {{ comment.commentMsg} }</li>
+                <li>
+                  <blockquote>
+                    <q>{{ comment.commentMsg }}</q><br />
+                    -{{ comment._owner.username }} 
+                  </blockquote>
+                </li>
               </ul>
               <div class="divider"></div>
             </div>
