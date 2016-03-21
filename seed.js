@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var db = 'mongodb://localhost/yardsale';
 mongoose.connect(db);
 
-var User = require('./model/user');
-var Item = require('./model/item');
-var Comment = require('./model/comment');
+var User = require('./models/user');
+var Item = require('./models/item');
+var Comment = require('./models/comment');
 
 // create a user
 var user1 = new User({
@@ -16,7 +16,7 @@ var user1 = new User({
   collectedItems: ['Jade Sword', 'Magic Beans']
 });
 // within saving the user
-user1.function(err) {
+user1.save(function(err) {
   if(err) return err;
 
   // create comments within the user save
@@ -26,7 +26,7 @@ user1.function(err) {
     itemLink: "Portal Gun"
   });
   var comment2 = new Comment({
-    commentMsg: "This gun is sick!!!"
+    commentMsg: "This gun is sick!!!",
     _owner: user1.id,
     itemLink: "Portal Gun"
   });
@@ -46,7 +46,7 @@ user1.function(err) {
     itemPrice: 900,
     itemSold: false
   });
-  item1.save(function(err)) {
+  item1.save(function(err) {
     if(err) return(err);
 
     //within comments creation add the comments in
@@ -60,7 +60,7 @@ user1.function(err) {
       if(err) return err;
     })
     Item.update({
-      itemName: "Portal Gun";
+      itemName: "Portal Gun",
     }, {
       $push: {
         comments: comment2._id
@@ -69,10 +69,10 @@ user1.function(err) {
       if(err) return err;
       console.log('Done');
     })
-  };
+  });
 
 
-};
+});
 
 
 
@@ -84,7 +84,7 @@ user1.function(err) {
 var user2 = new User({
   name: 'Bobby',
   money: 4000,
-  password: 1234
+  password: 1234,
   collectedItems: ['WindForce', 'Book of Eli', 'Mad Maxs Hat']
 });
 // within saving the user
