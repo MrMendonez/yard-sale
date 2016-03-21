@@ -28,16 +28,12 @@ angular.module('yardsaleApp', [])
     };
 
     budgetTracker.updateBudget = function() {
-      console.log('updateBudget function fired');
-      console.log('budgetTracker.budget = ' + budgetTracker.budget);
       $http({
         method: 'POST',
         url: '/updatebudget/' + budgetTracker.userId,
         data: { budget: budgetTracker.budget }
       }).then(function(result) {
-        console.log('then(function(result) fired')
         budgetTracker.budget = result.data.budget;
-        console.log('Caluclating...')
         budgetTracker.calculate();
         alert('Budget updated');
       });
@@ -46,7 +42,7 @@ angular.module('yardsaleApp', [])
     budgetTracker.addExpense = function() {
       $http({
         method: 'POST',
-        url: '/newexpense' + budgetTracker.userId,
+        url: '/newexpense/' + budgetTracker.userId,
         data: {
           amount: budgetTracker.expense.amount,
           name: budgetTracker.expense.name
@@ -67,7 +63,7 @@ angular.module('yardsaleApp', [])
     budgetTracker.deleteExpense = function(expenseId) {
       $http({
         method: 'GET',
-        url: '/deleteexpense' + expenseId
+        url: '/deleteexpense/' + expenseId
       }).then(function(result) {
         budgetTracker.login();
       });
