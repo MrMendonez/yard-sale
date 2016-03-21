@@ -68,10 +68,6 @@
     </ul>
   </div> <!-- slider -->
 
-  <div class="row center">
-    <a id="place-button" class="btn-large waves-effect waves-light red darken-4 modal-trigger" href="#modal2">Sell an Item</a>
-  </div>
-
   <div id="modal2" class="modal">
     <div class="modal-content" id="place-modal">
       <h4>New Item</h4>
@@ -127,13 +123,14 @@
           </section>
         </div>
       </div> <!-- Listed Items -->
-      <div class="col s3">
-        <h4 ng-if="user">Hello {{ user.username }}</h4>
-        <h5 ng-if="user">Your current balance: {{ user.money | currency }}</h5>
-        <h5 ng-if="user">Your collected items:</h5>
+      <div ng-if="user" class="col s3">
+        <h4>Hello {{ user.username }}</h4>
+        <h5>Your current balance: {{ user.money | currency }}</h5>
+        <h5>Your collected items:</h5>
         <ul>
-          <li><h6 ng-if="user" ng-repeat="item in user.collectedItems">{{item}}</h6></li>
+          <li><h6 ng-repeat="item in user.collectedItems">{{item}}</h6></li>
         </ul>
+        <a id="place-button" class="btn-large waves-effect waves-light red darken-4 modal-trigger" href="#modal2">Sell an Item</a>
       </div> <!-- Collected Items -->
     </div> <!-- row -->
   </div> <!-- container -->
