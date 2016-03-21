@@ -7,6 +7,10 @@ var userSchema = new Schema({
       required : true,
       unique : true
     },
+    password: {
+      type: String,
+      required: true
+    },
     salary : {
       type : Number,
     },

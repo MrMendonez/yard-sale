@@ -6,16 +6,21 @@ angular.module('yardsaleApp', [])
 
     budgetTracker.login = function() {
       console.log(budgetTracker.username);
+      console.log(budgetTracker.password);
       budgetTracker.loggedIn = true;
 
       $http({
         method: 'POST',
         url: '/user',
-        data: {username:budgetTracker.username}
+        data: { 
+          username: budgetTracker.username,
+          password: budgetTracker.password
+        }
       }).then(function(result) {
         console.log(result.data);
         budgetTracker.userId = result.data._id;
         budgetTracker.username = result.data.username;
+        budgetTracker.password = result.data.password;
         budgetTracker.budget = result.data.budget;
         budgetTracker.expenses = result.data.expenses;
         budgetTracker.calculate();
