@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
 
-var db = 'mongodb://localhost/buyandsell';
+var db = 'mongodb://localhost/yardsale';
 mongoose.connect(db)
 
 var itemSchema = new Schema({
@@ -69,7 +69,7 @@ Item = mongoose.model('Item', itemSchema);
 User = mongoose.model('User', userSchema);
 
 var user1 = new User({
-  username: 'paulsantos',
+  username: 'darrylmendonez',
   password: 'password',
   money: 9000,
   collectedItems: []
@@ -140,7 +140,7 @@ user1.save(function(err) {
 
 
 var user2 = new User({
-  username: 'tomcruise',
+  username: 'willsmith',
   password: 'password',
   money: 8000,
   collectedItems: []

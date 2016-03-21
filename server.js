@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var route = require('./routes/route.js');
+var route = require('./routes/routes.js');
 
 route.routes(app);
 
