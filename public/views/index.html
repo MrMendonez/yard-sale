@@ -37,7 +37,7 @@
           <input id="password" type="password" class="validate" ng-model="forms.password">
           <label for="password">Password</label>
         </div>
-        <button ng-click="login()" class="waves-effect waves-light btn">Submit</button>
+        <button ng-click="login()" class="waves-effect waves-light btn" type="submit">Submit</button>
       </div>
     </form>
   </div> <!-- login-form -->
@@ -83,7 +83,7 @@
           <input id="itemPrice" type="text" class="validate" ng-model="itemTxt.price">
           <label for="itemPrice">Price</label>
         </div>
-        <a class="waves-effect waves-light btn" ng-click="newItem()">Add Item</a>
+        <a class="waves-effect waves-light btn modal-close" ng-click="newItem()">Add Item</a>
       </div>
     </div>
   </div> <!-- modal2 -->

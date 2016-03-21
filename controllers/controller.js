@@ -7,9 +7,9 @@ exports.home = function(req, res, next) {
 }
 
 exports.getLogin = function(req, res, next) {
-  console.log('getLogin fired')
-  console.log(req.user.username);
-  console.log(req.user.id);
+  // console.log('getLogin fired')
+  // console.log(req.user.username);
+  // console.log(req.user.id);
 
   User.findOne({
     username: req.user.username
