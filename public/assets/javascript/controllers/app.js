@@ -34,8 +34,8 @@ angular.module('yardsaleApp', [])
         data: { budget: budgetTracker.budget }
       }).then(function(result) {
         budgetTracker.budget = result.data.budget;
+        console.log('Caluclating...')
         budgetTracker.calculate();
-
         alert('Budget updated');
       });
     };
