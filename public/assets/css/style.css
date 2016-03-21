@@ -36,7 +36,7 @@ td{
   margin: 15px 0;
 }
 
-#expensetitle, #expenseamount{
+#expensetitle, #expensedescription, #expenseamount{
   width:33%;
   height:28px;
 }

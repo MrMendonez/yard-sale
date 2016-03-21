@@ -35,27 +35,40 @@
           </div>
           <div id="login-button">
             <button type="submit" class="solo-button">
-              <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"> Save Budget to DB for your next visit
+              <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"> Save Budget</span>
             </button>
           </div>
         </form>
-
+        <h2>Purchase an Item</h2>
         <div id="expenseShow">
           <table>
-            <tr><th>Name</th><th>Amount</th><th>Delete</th></tr>
-            <tr ng-repeat="expense in budgetTracker.expenses"><td>{{expense.name}}</td><td>{{expense.amount | currency}}</td><td ng-click="budgetTracker.deleteExpense(expense._id)"><button>X</button></td></tr>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="expense in budgetTracker.expenses">
+                <td>{{ expense.name }}</td>
+                <td>{{ expense.description }}</td>
+                <td>{{ expense.amount | currency }}</td>
+                <td ng-click="budgetTracker.deleteExpense(expense._id)"><button>X</button></td>
+              </tr>
+            </tbody>
           </table>
         </div>
+        <h2>List an Item</h2>
+        <form ng-submit="budgetTracker.addExpense()">
+          <input id="expensetitle" type="text" ng-model="budgetTracker.expense.name" placeholder="Item"><br />
+          <input id="expensedescription" type="text" ng-model="budgetTracker.expense.description" placeholder="Description"><br />
+          <input id="expenseamount" type="number" ng-model="budgetTracker.expense.amount" placeholder="Sell Price"><br />
+          <button id="submitbutton" type="submit">Add Item</button>
+        </form>
 
-
-
-      <form ng-submit="budgetTracker.addExpense()">
-        <input id="expensetitle" type="text" ng-model="budgetTracker.expense.name" placeholder="Expense Name">
-        <input id="expenseamount" type="number" ng-model="budgetTracker.expense.amount" placeholder="Amount">
-        <button id="submitbutton" type="submit">Add Expense</button>
-      </form>
-
-      <h2>You have {{budgetTracker.moneyLeft | currency}} left each month!</h2>
+        <h2>You have {{ budgetTracker.moneyLeft | currency }} left!</h2>
     </div>
 
     </div>

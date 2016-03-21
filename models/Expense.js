@@ -6,8 +6,11 @@ var expenseSchema = new Schema({
      type: Schema.Types.ObjectId,
       ref: 'User'
     },
-  amount : {
-    type:Number,
+  description: {
+    type: String
+  },
+  amount: {
+    type: Number,
     required:true
   },
   name: {

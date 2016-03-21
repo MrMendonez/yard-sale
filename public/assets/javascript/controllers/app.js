@@ -5,8 +5,6 @@ angular.module('yardsaleApp', [])
     budgetTracker.expenseTotal = 0;
 
     budgetTracker.login = function() {
-      console.log(budgetTracker.username);
-      console.log(budgetTracker.password);
       budgetTracker.loggedIn = true;
 
       $http({
@@ -35,7 +33,7 @@ angular.module('yardsaleApp', [])
       }).then(function(result) {
         budgetTracker.budget = result.data.budget;
         budgetTracker.calculate();
-        alert('Budget updated');
+        alert('Budget saved to database');
       });
     };
 
@@ -44,8 +42,9 @@ angular.module('yardsaleApp', [])
         method: 'POST',
         url: '/newexpense/' + budgetTracker.userId,
         data: {
-          amount: budgetTracker.expense.amount,
-          name: budgetTracker.expense.name
+          name: budgetTracker.expense.name,
+          description: budgetTracker.expense.description,
+          amount: budgetTracker.expense.amount
         }
       }).then(function(result) {
         budgetTracker.login();
