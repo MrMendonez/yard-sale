@@ -69,8 +69,8 @@ Item = mongoose.model('Item', itemSchema);
 User = mongoose.model('User', userSchema);
 
 var user1 = new User({
-  username: 'darrylmendonez',
-  password: 'password',
+  username: 'bricktamland',
+  password: '11111',
   money: 9000,
   collectedItems: []
 });
@@ -78,15 +78,15 @@ var user1 = new User({
 user1.save(function(err) {
   if(err) throw err;
   var comment1 = new Comment({
-    commentMsg: "Charizard is the best",
+    commentMsg: "I love you more than I love lamp",
     _owner: user1.id,
-    itemLink: "Charizard"
+    itemLink: "Nikon FM10 35mm"
   });
 
   var comment2 = new Comment({
-    commentMsg: "MewTwo is the cooler",
+    commentMsg: "I love lamp",
     _owner: user1.id,
-    itemLink: "MewTwo"
+    itemLink: "Vienna Crystal and Brass Table Lamp"
   });
 
   comment1.save(function(err) {
@@ -97,16 +97,16 @@ user1.save(function(err) {
   });
 
   var item1 = new Item({
-    itemName: 'Charizard',
-    itemDescription: "Best pokemon ever",
-    itemPrice: 9000,
+    itemName: 'Nikon FM10 35mm',
+    itemDescription: "Learn the art of photography the old fashioned way",
+    itemPrice: 500,
     itemSold: false
   });
   item1.save(function(err) {
     if(err) throw err;
 
     Item.update({
-      itemName: 'Charizard'
+      itemName: 'Nikon FM10 35mm'
     }, {
       $push: {
         comments: comment1._id
@@ -117,16 +117,16 @@ user1.save(function(err) {
     });
   });
   var item2 = new Item({
-    itemName: 'MewTwo',
-    itemDescription: "He is Psycic",
-    itemPrice: 4500,
+    itemName: 'Vienna Crystal and Brass Table Lamp',
+    itemDescription: "Bright brass accents add to the charm of this sparkling clear crystal table lamp",
+    itemPrice: 150,
     itemSold: false
   });
   item2.save(function(err) {
     if(err) throw err;
 
     Item.update({
-      itemName: 'MewTwo'
+      itemName: 'Vienna Crystal and Brass Table Lamp'
     }, {
       $push: {
         comments: comment2._id
@@ -140,7 +140,7 @@ user1.save(function(err) {
 
 
 var user2 = new User({
-  username: 'willsmith',
+  username: 'reginageorge',
   password: 'password',
   money: 8000,
   collectedItems: []
@@ -149,15 +149,15 @@ var user2 = new User({
 user2.save(function(err) {
   if(err) throw err;
   var comment1 = new Comment({
-    commentMsg: "He's alright",
+    commentMsg: "Vintage! So adorable =)",
     _owner: user2.id,
-    itemLink: "Charizard"
+    itemLink: "Nikon FM10 35mm"
   });
 
   var comment2 = new Comment({
-    commentMsg: "MewTwo is psychic",
+    commentMsg: "Oh my God! I love this lamp.",
     _owner: user2.id,
-    itemLink: "MewTwo"
+    itemLink: "Vienna Crystal and Brass Table Lamp"
   });
 
   comment1.save(function(err) {
@@ -168,7 +168,7 @@ user2.save(function(err) {
   });
 
   Item.update({
-    itemName: 'Charizard'
+    itemName: 'Nikon FM10 35mm'
   }, {
     $push: {
       comments: comment1._id
@@ -179,7 +179,7 @@ user2.save(function(err) {
   });
 
   Item.update({
-    itemName: 'MewTwo'
+    itemName: 'Vienna Crystal and Brass Table Lamp'
   }, {
     $push: {
       comments: comment2._id

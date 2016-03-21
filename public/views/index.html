@@ -47,15 +47,17 @@
       <li>
         <img src="https://images.unsplash.com/photo-1452886692067-11c699fb38e6?crop=entropy&fit=crop&fm=jpg&h=800&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450"> <!-- random image -->
         <div class="caption center-align">
+          <h3 ng-if="!user">Welcome to Yard Sale!</h3>
           <h3 ng-if="user">Hello {{user.username}}</h3>
-          <h5 class="light grey-text text-lighten-3">This is your current balance: {{user.money | currency}}</h5>
+          <h5 ng-if="user" class="light grey-text text-lighten-3">This is your current balance: {{ user.money | currency }}</h5>
         </div>
       </li>
       <li>
         <img src="https://images.unsplash.com/37/7ERQBFNpSpSa7opZjjWE_camaras.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=22f4df31169c172b2395f903555147fa"> <!-- random image -->
         <div class="caption left-align">
-          <h3>These are your collected items</h3>
-          <h5 class="light grey-text text-lighten-3" ng-repeat="item in user.collectedItems">{{item}}</h5>
+          <h3 ng-if="!user">Browse around our wonderful collections!</h3>
+          <h3 ng-if="user">These are your collected items</h3>
+          <h5 ng-if="user" class="light grey-text text-lighten-3" ng-repeat="item in user.collectedItems">{{item}}</h5>
         </div>
       </li>
     </ul>
@@ -92,10 +94,10 @@
         <div ng-if="!item.itemSold">
           <div class="row">
             <div class="col m6 offset-m3 center">
-              <h3>{{item.itemName}}</h3>
-              <h5>Description: {{item.itemDescription}}</h5>
+              <h3>{{ item.itemName }}</h3>
+              <h5>Description: {{ item.itemDescription }}</h5>
               <p>Owner: {{item._owner.username}}</p>
-              <small>Price: {{item.itemPrice | currency}}</small>
+              <small>Price: {{ item.itemPrice | currency }}</small>
               <a class="waves-effect waves-light btn" ng-click="buyItem(item._id, item.itemPrice)">BUY NOW!</a>
               <div class="input-field col s12" ng-if="user">
                 <textarea id="comment" class="materialize-textarea" ng-model="commentTxt.addComment"></textarea>
@@ -103,7 +105,7 @@
                 <a class="waves-effect waves-light btn" ng-click="addComment(item.itemName)">Add Comment</a>
               </div>
               <ul ng-repeat="comment in item.comments">
-                <li>{{comment._owner.username}} says: {{comment.commentMsg}}</li>
+                <li>{{ comment._owner.username }} says: {{ comment.commentMsg} }</li>
               </ul>
               <div class="divider"></div>
             </div>
